@@ -26,7 +26,7 @@ class App extends StatelessWidget {
 class Dashboard extends StatefulWidget {
   final String title;
   final String version;
-  Dashboard({this.title, this.version});
+  Dashboard({required this.title,required this.version});
 
   @override
   _DashboardState createState() => _DashboardState();

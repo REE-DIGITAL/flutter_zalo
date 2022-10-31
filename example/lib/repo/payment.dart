@@ -1,10 +1,10 @@
-import 'package:flutter_zalo_sdk_example/models/create_order_response.dart';
-import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter_zalo_sdk_example/utils/endpoints.dart';
 
+import 'package:flutter_zalo_sdk_example/models/create_order_response.dart';
+import 'package:flutter_zalo_sdk_example/utils/endpoints.dart';
 import 'package:flutter_zalo_sdk_example/utils/util.dart' as utils;
+import 'package:http/http.dart' as http;
 import 'package:sprintf/sprintf.dart';
 
 class ZaloPayConfig {
@@ -16,7 +16,7 @@ class ZaloPayConfig {
   static int transIdDefault = 1;
 }
 
-Future<CreateOrderResponse> createOrder(int price) async {
+Future<CreateOrderResponse?> createOrder(int price) async {
   var header = new Map<String, String>();
   header["Content-Type"] = "application/x-www-form-urlencoded";
 
@@ -29,7 +29,7 @@ Future<CreateOrderResponse> createOrder(int price) async {
   body["embed_data"] = "{}";
   body["item"] = "[]";
   body["bank_code"] = utils.getBankCode();
-  body["description"] = utils.getDescription(body["app_trans_id"]);
+  body["description"] = utils.getDescription(body["app_trans_id"] ?? "");
 
   var dataGetMac = sprintf("%s|%s|%s|%s|%s|%s|%s", [
     body["app_id"],
