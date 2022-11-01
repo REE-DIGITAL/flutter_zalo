@@ -26,8 +26,8 @@ class FlutterZaloPaySdk {
         }
       }
     } else {
-      final Map<String, dynamic> result =
-          await _channel.invokeMethod('payOrder', {"zptoken": zpToken}) as Map<String, dynamic>;
+      final result =
+          await _channel.invokeMethod('payOrder', {"zptoken": zpToken});
       switch (int.parse(result["errorCode"] as String? ?? "0")) {
         case 4:
           yield FlutterZaloPayStatus.cancelled;
