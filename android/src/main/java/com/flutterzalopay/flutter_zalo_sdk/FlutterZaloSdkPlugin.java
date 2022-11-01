@@ -38,9 +38,9 @@ public class FlutterZaloSdkPlugin implements FlutterPlugin, ActivityAware, Metho
     private final String META_DATA_SDK_ZALO_APP_ID = "com.vng.zalo.sdk.APP_ID";
     private final String META_DATA_SDK_ZALO_URI_SCHEME = "com.vng.zalo.sdk.URI_SCHEME";
     private final String META_DATA_SDK_ZALO_ENVIRONMENT = "com.vng.zalo.sdk.ENVIRONMENT";
-    private final Int PAYMENT_COMPLETE = 1;
-    private final Int PAYMENT_ERROR = -1;
-    private final Int PAYMENT_CANCELED = 4;
+    private final int PAYMENT_COMPLETE = 1;
+    private final int PAYMENT_ERROR = -1;
+    private final int PAYMENT_CANCELED = 4;
     private Activity activity;
     private Context context;
 
