@@ -158,7 +158,7 @@ public class FlutterZaloSdkPlugin implements FlutterPlugin, ActivityAware, Metho
                     public void onPaymentCanceled(@Nullable String zpTransToken, @Nullable String appTransID) {
                         Log.d(tagCanel, String.format("[TransactionId]: %s, [appTransID]: %s", zpTransToken, appTransID));
                         HashMap<String, String> data = new HashMap<String, String>();
-                        data.put("errorCode", PAYMENT_CANCELED.toString());
+                        data.put("errorCode", Integer.toString(PAYMENT_CANCELED));
                         data.put("appTransId", appTransID);
                         poResult.success(data);
                     }
@@ -167,7 +167,7 @@ public class FlutterZaloSdkPlugin implements FlutterPlugin, ActivityAware, Metho
                     public void onPaymentSucceeded(String transactionId, String transToken, String appTransID) {
                         Log.d(tagSuccess, String.format("[TransactionId]: %s, [TransToken]: %s, [appTransID]: %s", transactionId, transToken, appTransID));
                         HashMap<String, String> data = new HashMap<String, String>();
-                        data.put("errorCode", PAYMENT_COMPLETE.toString());
+                        data.put("errorCode", Integer.toString(PAYMENT_COMPLETE));
                         data.put("appTransId", appTransID);
                         data.put("transToken", transToken);
                         poResult.success(data);
@@ -181,7 +181,7 @@ public class FlutterZaloSdkPlugin implements FlutterPlugin, ActivityAware, Metho
                             ZaloPaySDK.getInstance().navigateToZaloPayOnStore(activity.getApplicationContext());
                         } else {
                             HashMap<String, String> data = new HashMap<String, String>();
-                            data.put("errorCode", PAYMENT_ERROR.toString());
+                            data.put("errorCode", Integer.toString(PAYMENT_ERROR));
                             data.put("appTransId", appTransID);
                             data.put("transToken", zpTransToken);
                             poResult.success(data);
