@@ -95,7 +95,12 @@ override func application(_ app: UIApplication, open url: URL, options: [UIAppli
 * In didFinishLaunchingWithOptions, add the line:
 
 ```swift 
-  ZaloPaySDK.sharedInstance()?.initWithAppId(2553, uriScheme: "demozpdk://app", environment: .sandbox) ///NOTE: If you want to use production, replace .sandbox with .production
+ let appId = Bundle.main.zalopayAppId
+      let zalopayENV = ZPZPIEnvironment.sandbox
+      if Bundle.main.zalopayENV != "SANDBOX" {
+          let zalopayENV = ZPZPIEnvironment.production
+      }
+      ZaloPaySDK.sharedInstance()?.initWithAppId(appId, uriScheme:"ree.happymeal://open",environment: zalopayENV )
 ```
 
 ### How To Use
