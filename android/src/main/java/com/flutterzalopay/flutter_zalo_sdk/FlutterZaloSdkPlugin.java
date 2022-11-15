@@ -79,9 +79,9 @@ public class FlutterZaloSdkPlugin implements FlutterPlugin, ActivityAware, Metho
             Bundle bundleActivity = getMetaDataFromActivity(activity);
 
             if (bundleApplication.containsKey(META_DATA_SDK_ZALO_APP_ID)) {
-                return Integer.parseInt(bundleApplication.getString(META_DATA_SDK_ZALO_APP_ID));
+                return bundleApplication.getInt(META_DATA_SDK_ZALO_APP_ID);
             } else if (bundleActivity.containsKey(META_DATA_SDK_ZALO_APP_ID)) {
-                return Integer.parseInt(bundleActivity.getString(META_DATA_SDK_ZALO_APP_ID));
+                return bundleActivity.getInt(META_DATA_SDK_ZALO_APP_ID);
             }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
